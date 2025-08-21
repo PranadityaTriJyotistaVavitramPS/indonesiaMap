@@ -39,5 +39,24 @@ ls -la /data/*.mbtiles
 echo "File sizes:"
 du -h /data/*.mbtiles
 
+# Test if Node.js can access the files
+echo "=== TESTING NODE FILE ACCESS ==="
+node -e "
+const fs = require('fs');
+const files = ['indonesia1.mbtiles', 'indonesia2.mbtiles', 'indonesia3.mbtiles'];
+files.forEach(file => {
+    const path = '/data/' + file;
+    try {
+        const stats = fs.statSync(path);
+        console.log('✓ Node can access:', path, '- Size:', stats.size, 'bytes');
+    } catch (error) {
+        console.error('✗ Node cannot access:', path, '- Error:', error.message);
+    }
+});
+"
+
+echo "=== CHECKING TILESERVER CONFIG ==="
+cat /data/config.json
+
 echo "=== STARTING TILESERVER ==="
 exec "$@"
