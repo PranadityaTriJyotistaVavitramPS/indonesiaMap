@@ -1,10 +1,7 @@
-FROM node:18-alpine
+FROM maptiler/tileserver-gl:latest
 
-# Install dependencies
-RUN apk add --no-cache curl bash
-
-# Install tileserver-gl
-RUN npm install -g tileserver-gl
+USER root
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data
 
@@ -14,4 +11,5 @@ RUN chmod +x /entrypoint.sh
 
 EXPOSE 8080
 
-ENTRYPOINT ["/entrypoint.sh"]
+# Use the default command from the base image but with our config
+CMD ["tileserver-gl", "--config", "/data/config.json", "--bind", "0.0.0.0"]

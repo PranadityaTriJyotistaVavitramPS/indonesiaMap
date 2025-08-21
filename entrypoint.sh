@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 # Download tiles if not already downloaded
@@ -20,5 +20,5 @@ fi
 echo "Contents of /data folder:"
 ls -lh /data
 
-# Run tileserver-gl
-exec tileserver-gl --config /data/config.json --bind 0.0.0.0
+# Just pass through to CMD
+exec "$@"
