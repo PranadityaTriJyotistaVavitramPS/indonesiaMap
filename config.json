@@ -2,9 +2,11 @@
   "options": {
     "paths": {
       "root": "/data"
-    }
+    },
+    "domains": ["*"],
+    "cors": true
   },
-  "layers": {
+  "data": {
     "indonesia1": {
       "mbtiles": "indonesia1.mbtiles"
     },

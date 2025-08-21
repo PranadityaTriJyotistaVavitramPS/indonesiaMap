@@ -20,5 +20,9 @@ fi
 echo "Contents of /data folder:"
 ls -lh /data
 
+echo "Starting tileserver-gl..."
+echo "Available layers from config:"
+grep '"mbtiles"' /data/config.json || echo "No mbtiles configured"
+
 # Just pass through to CMD
 exec "$@"
