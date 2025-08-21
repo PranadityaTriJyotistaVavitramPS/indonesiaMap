@@ -18,4 +18,5 @@ if [ ! -f /data/indonesia3.mbtiles ]; then
 fi
 
 # Run tileserver-gl
-exec tileserver-gl --config /data/config.json --bind 0.0.0.0
+exec /usr/src/app/tileserver-gl --config /data/config.json --bind 0.0.0.0
+
