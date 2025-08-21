@@ -1,0 +1,18 @@
+{
+  "options": {
+    "paths": {
+      "root": "/data"
+    }
+  },
+  "data": {
+    "indonesia1": {
+      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia1.mbtiles"
+    },
+    "indonesia2": {
+      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia2.mbtiles"
+    },
+    "indonesia3": {
+      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia3.mbtiles"
+    }
+  }
+}
