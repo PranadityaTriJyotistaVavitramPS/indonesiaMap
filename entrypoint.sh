@@ -21,6 +21,5 @@ echo "Isi folder /data:"
 ls -lh /data
 
 # Run tileserver-gl
-exec node /usr/src/app/tileserver-gl.js --config /data/config.json --bind 0.0.0.0
-
+exec tileserver-gl --config /data/config.json --bind 0.0.0.0
 
