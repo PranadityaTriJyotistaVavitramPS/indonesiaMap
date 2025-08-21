@@ -8,13 +8,13 @@
   },
   "data": {
     "indonesia1": {
-      "mbtiles": "indonesia1.mbtiles"
+      "mbtiles": "/data/indonesia1.mbtiles"
     },
     "indonesia2": {
-      "mbtiles": "indonesia2.mbtiles"
+      "mbtiles": "/data/indonesia2.mbtiles"
     },
     "indonesia3": {
-      "mbtiles": "indonesia3.mbtiles"
+      "mbtiles": "/data/indonesia3.mbtiles"
     }
   }
 }

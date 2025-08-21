@@ -3,6 +3,9 @@ FROM maptiler/tileserver-gl:latest
 USER root
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
+# Create data directory with proper permissions
+RUN mkdir -p /data && chmod 755 /data
+
 WORKDIR /data
 
 COPY config.json /data/config.json
