@@ -20,6 +20,5 @@ fi
 echo "Isi folder /data:"
 ls -lh /data
 
-# Run tileserver-gl
-exec tileserver-gl --config /data/config.json --bind 0.0.0.0
-
+# Run tileserver-gl (pakai full path)
+exec /usr/src/app/tileserver-gl --config /data/config.json --bind 0.0.0.0
