@@ -4,17 +4,14 @@
       "root": "/data"
     }
   },
-  "styles": {
+  "layers": {
     "indonesia1": {
-      "style": "bright",
       "mbtiles": "indonesia1.mbtiles"
     },
     "indonesia2": {
-      "style": "bright",
       "mbtiles": "indonesia2.mbtiles"
     },
     "indonesia3": {
-      "style": "bright",
       "mbtiles": "indonesia3.mbtiles"
     }
   }
