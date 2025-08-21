@@ -4,15 +4,18 @@
       "root": "/data"
     }
   },
-  "data": {
+  "styles": {
     "indonesia1": {
-      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia1.mbtiles"
+      "style": "bright",
+      "mbtiles": "indonesia1.mbtiles"
     },
     "indonesia2": {
-      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia2.mbtiles"
+      "style": "bright",
+      "mbtiles": "indonesia2.mbtiles"
     },
     "indonesia3": {
-      "mbtiles": "https://storage.googleapis.com/my-tiles-bucket/indonesia3.mbtiles"
+      "style": "bright",
+      "mbtiles": "indonesia3.mbtiles"
     }
   }
 }
