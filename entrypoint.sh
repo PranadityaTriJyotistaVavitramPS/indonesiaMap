@@ -17,6 +17,9 @@ if [ ! -f /data/indonesia3.mbtiles ]; then
   curl -L -o /data/indonesia3.mbtiles https://storage.googleapis.com/my-tiles-bucket/indonesia3.mbtiles
 fi
 
+echo "Isi folder /data:"
+ls -lh /data
+
 # Run tileserver-gl
 exec /usr/src/app/tileserver-gl --config /data/config.json --bind 0.0.0.0
 
