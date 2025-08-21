@@ -1,28 +1,43 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # Download tiles if not already downloaded
-if [ ! -f /data/indonesia1.mbtiles ]; then
-  echo "Downloading indonesia1.mbtiles..."
-  curl -L -o /data/indonesia1.mbtiles https://storage.googleapis.com/my-tiles-bucket/indonesia1.mbtiles
-fi
+download_tile() {
+    local filename=$1
+    local url=$2
+    
+    if [ ! -f "/data/${filename}" ]; then
+        echo "Downloading ${filename}..."
+        curl -L -o "/data/${filename}" "${url}"
+        
+        # Verify download was successful
+        if [ ! -f "/data/${filename}" ]; then
+            echo "ERROR: Failed to download ${filename}"
+            exit 1
+        fi
+    else
+        echo "${filename} already exists"
+    fi
+    
+    # Set proper permissions
+    chmod 644 "/data/${filename}"
+    echo "Verified ${filename} (size: $(du -h "/data/${filename}" | cut -f1))"
+}
 
-if [ ! -f /data/indonesia2.mbtiles ]; then
-  echo "Downloading indonesia2.mbtiles..."
-  curl -L -o /data/indonesia2.mbtiles https://storage.googleapis.com/my-tiles-bucket/indonesia2.mbtiles
-fi
+# Download all tiles
+download_tile "indonesia1.mbtiles" "https://storage.googleapis.com/my-tiles-bucket/indonesia1.mbtiles"
+download_tile "indonesia2.mbtiles" "https://storage.googleapis.com/my-tiles-bucket/indonesia2.mbtiles"
+download_tile "indonesia3.mbtiles" "https://storage.googleapis.com/my-tiles-bucket/indonesia3.mbtiles"
 
-if [ ! -f /data/indonesia3.mbtiles ]; then
-  echo "Downloading indonesia3.mbtiles..."
-  curl -L -o /data/indonesia3.mbtiles https://storage.googleapis.com/my-tiles-bucket/indonesia3.mbtiles
-fi
-
+echo "=== FINAL VERIFICATION ==="
 echo "Contents of /data folder:"
-ls -lh /data
+ls -la /data
 
-echo "Starting tileserver-gl..."
-echo "Available layers from config:"
-grep '"mbtiles"' /data/config.json || echo "No mbtiles configured"
+echo "File permissions:"
+ls -la /data/*.mbtiles
 
-# Just pass through to CMD
+echo "File sizes:"
+du -h /data/*.mbtiles
+
+echo "=== STARTING TILESERVER ==="
 exec "$@"
